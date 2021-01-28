@@ -9,5 +9,4 @@ interface ULessonService {
 
     @GET("/3p/api/content/grade")
     suspend fun getSubjects(): Response<BaseApiResponse<SubjectResponse>>
-
 }

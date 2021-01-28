@@ -26,7 +26,7 @@ class LocalDataModule {
     @Provides
     @Singleton
     fun providesGlobalSharedPreference(app: Application): SharedPreferences =
-            app.getSharedPreferences(Constants.Variables.SHARED_PREFS_NAME, Context.MODE_PRIVATE)
+        app.getSharedPreferences(Constants.Variables.SHARED_PREFS_NAME, Context.MODE_PRIVATE)
 
     @Provides
     @Singleton
@@ -47,5 +47,4 @@ class LocalDataModule {
 
     @Provides
     fun providesRecentlyWatchedDao(db: ULessonDatabase): RecentlyWatchedDao = db.getRecentlyWatchedDao()
-
 }

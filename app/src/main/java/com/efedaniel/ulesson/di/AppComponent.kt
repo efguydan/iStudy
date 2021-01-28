@@ -23,7 +23,5 @@ interface AppComponent {
 
         @BindsInstance
         fun application(app: Application): Builder
-
     }
-
 }

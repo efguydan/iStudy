@@ -1,8 +1,10 @@
 package com.efedaniel.ulesson.ulessonapp.data.db.daos
 
-import androidx.lifecycle.LiveData
-import androidx.room.*
-import com.efedaniel.ulesson.ulessonapp.models.local.LocalChapter
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.efedaniel.ulesson.ulessonapp.models.local.LocalLesson
 import com.efedaniel.ulesson.utils.Constants.DatabaseKeys
 
@@ -23,5 +25,4 @@ interface LessonDao {
 
     @Query("SELECT * FROM ${DatabaseKeys.LESSON_TABLE_NAME} where chapter_id = :chapterID")
     suspend fun getChapterLessons(chapterID: Int): List<LocalLesson>
-
 }

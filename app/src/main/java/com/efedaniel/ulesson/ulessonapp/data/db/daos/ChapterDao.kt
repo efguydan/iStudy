@@ -1,7 +1,10 @@
 package com.efedaniel.ulesson.ulessonapp.data.db.daos
 
-import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.efedaniel.ulesson.ulessonapp.models.local.LocalChapter
 import com.efedaniel.ulesson.utils.Constants.DatabaseKeys
 
@@ -22,5 +25,4 @@ interface ChapterDao {
 
     @Query("SELECT * FROM ${DatabaseKeys.CHAPTER_TABLE_NAME} where subject_id = :subjectID")
     suspend fun getSubjectChapters(subjectID: Int): List<LocalChapter>
-
 }

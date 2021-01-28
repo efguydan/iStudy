@@ -18,9 +18,9 @@ fun RecentlyWatched.toLesson() = Lesson(
 )
 
 fun RecentlyWatched.toLocalRecentlyWatched() = LocalRecentlyWatched(
-        id = id,
-        name = name,
-        icon = icon,
-        videoLink = videoLink,
-        subjectName = subjectName
+    id = id,
+    name = name,
+    icon = icon,
+    videoLink = videoLink,
+    subjectName = subjectName
 )

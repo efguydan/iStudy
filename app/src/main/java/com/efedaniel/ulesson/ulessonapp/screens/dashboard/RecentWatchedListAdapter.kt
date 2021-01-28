@@ -9,13 +9,12 @@ import com.efedaniel.ulesson.R
 import com.efedaniel.ulesson.databinding.ItemRecentlyWatchedBinding
 import com.efedaniel.ulesson.extensions.inflate
 import com.efedaniel.ulesson.ulessonapp.models.general.RecentlyWatched
-import com.efedaniel.ulesson.ulessonapp.models.general.Subject
 
 class RecentWatchedListAdapter(
     private val listener: RecentlyWatchedListListener
-): ListAdapter<RecentlyWatched, RecentWatchedListAdapter.RecentlyWatchedViewHolder>(DiffCallback) {
+) : ListAdapter<RecentlyWatched, RecentWatchedListAdapter.RecentlyWatchedViewHolder>(DiffCallback) {
 
-    companion object DiffCallback: DiffUtil.ItemCallback<RecentlyWatched>() {
+    companion object DiffCallback : DiffUtil.ItemCallback<RecentlyWatched>() {
         override fun areItemsTheSame(oldItem: RecentlyWatched, newItem: RecentlyWatched): Boolean {
             return oldItem.id == newItem.id
         }
@@ -23,7 +22,6 @@ class RecentWatchedListAdapter(
         override fun areContentsTheSame(oldItem: RecentlyWatched, newItem: RecentlyWatched): Boolean {
             return oldItem == newItem
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecentlyWatchedViewHolder {
@@ -36,16 +34,14 @@ class RecentWatchedListAdapter(
 
     inner class RecentlyWatchedViewHolder(
         private val binding: ItemRecentlyWatchedBinding
-    ): RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: RecentlyWatched) = binding.run {
             lesson = item
             rootLayout.setOnClickListener { listener.onRecentlyWatchedLessonClicked(item) }
             executePendingBindings()
         }
-
     }
-
 }
 
 interface RecentlyWatchedListListener {

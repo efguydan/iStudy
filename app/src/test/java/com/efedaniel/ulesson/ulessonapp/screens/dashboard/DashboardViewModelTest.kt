@@ -7,7 +7,9 @@ import com.efedaniel.ulesson.networkutils.Result
 import com.efedaniel.ulesson.ulessonapp.data.repositories.LocalRepository
 import com.efedaniel.ulesson.ulessonapp.data.repositories.ULessonRepository
 import com.efedaniel.ulesson.ulessonapp.models.local.LocalSubject
-import com.nhaarman.mockitokotlin2.*
+import com.nhaarman.mockitokotlin2.verify
+import com.nhaarman.mockitokotlin2.verifyNoMoreInteractions
+import com.nhaarman.mockitokotlin2.verifyZeroInteractions
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineDispatcher
@@ -15,14 +17,12 @@ import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.setMain
 import org.junit.After
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
-import java.util.*
 
 @ExperimentalCoroutinesApi
 class DashboardViewModelTest {
@@ -156,5 +156,4 @@ class DashboardViewModelTest {
         // Verify zero interactions with the loading status observer
         verifyZeroInteractions(mockObserver)
     }
-
 }

@@ -23,7 +23,8 @@ class SubjectFragment : BaseFragment(), LessonListListener {
     private val args: SubjectFragmentArgs by navArgs()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSubjectBinding.inflate(layoutInflater)
@@ -42,7 +43,7 @@ class SubjectFragment : BaseFragment(), LessonListListener {
             backButton.setOnClickListener { mainActivity.onBackPressed() }
             chapterRecycler.adapter = ChapterListAdapter(this@SubjectFragment)
         }
-        
+
         viewModel.getSubjectChapters(args.subject)
     }
 
@@ -50,5 +51,4 @@ class SubjectFragment : BaseFragment(), LessonListListener {
         viewModel.insertRecentlyWatched(lesson, args.subject)
         findNavController().navigate(SubjectFragmentDirections.actionSubjectFragmentToLessonFragment(lesson))
     }
-
 }

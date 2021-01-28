@@ -19,32 +19,32 @@ class APIServiceModule {
     @Provides
     @Singleton
     fun providesULessonApiService(
-            client: Lazy<OkHttpClient>,
-            gsonConverter: GsonConverterFactory
+        client: Lazy<OkHttpClient>,
+        gsonConverter: GsonConverterFactory
     ): ULessonService {
         return Retrofit.Builder()
-                .baseUrl(Constants.Variables.BASE_URL)
-                .client(client.get())
-                .addConverterFactory(gsonConverter)
-                .build()
-                .create(ULessonService::class.java)
+            .baseUrl(Constants.Variables.BASE_URL)
+            .client(client.get())
+            .addConverterFactory(gsonConverter)
+            .build()
+            .create(ULessonService::class.java)
     }
 
     @Provides
     @Singleton
     fun providesOkHttpClient(interceptor: HttpLoggingInterceptor): OkHttpClient =
-            OkHttpClient.Builder().addInterceptor(interceptor).build()
+        OkHttpClient.Builder().addInterceptor(interceptor).build()
 
     @Provides
     @Singleton
     fun provideLoggingInterceptor(): HttpLoggingInterceptor =
-            HttpLoggingInterceptor().apply {
-                level = if (BuildConfig.DEBUG) {
-                    HttpLoggingInterceptor.Level.BODY
-                } else {
-                    HttpLoggingInterceptor.Level.NONE
-                }
+        HttpLoggingInterceptor().apply {
+            level = if (BuildConfig.DEBUG) {
+                HttpLoggingInterceptor.Level.BODY
+            } else {
+                HttpLoggingInterceptor.Level.NONE
             }
+        }
 
     @Provides
     @Singleton
@@ -53,6 +53,5 @@ class APIServiceModule {
     @Provides
     @Singleton
     fun provideGsonConverterFactory(gson: Gson): GsonConverterFactory =
-            GsonConverterFactory.create(gson)
-
+        GsonConverterFactory.create(gson)
 }

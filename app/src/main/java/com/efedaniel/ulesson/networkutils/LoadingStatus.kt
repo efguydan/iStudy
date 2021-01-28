@@ -13,5 +13,4 @@ sealed class LoadingStatus {
             is Loading -> "Loading[$message]"
         }
     }
-
 }

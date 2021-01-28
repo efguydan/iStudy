@@ -1,9 +1,6 @@
 package com.efedaniel.ulesson.networkutils
 
-import okhttp3.ResponseBody
-import org.json.JSONObject
 import retrofit2.Response
-import timber.log.Timber
 
 const val GENERIC_ERROR_MESSAGE = "An error occurred, Please try again"
 const val GENERIC_ERROR_CODE = "-1"

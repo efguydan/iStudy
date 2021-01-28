@@ -44,12 +44,14 @@ object Config {
         const val mockito = "2.2.0"
         const val mockitoInline = "2.13.0"
         const val testingCore = "2.1.0"
+        const val spotless = "5.7.0"
     }
 
     object Plugins {
         const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
         const val gradle = "com.android.tools.build:gradle:${Versions.gradle}"
         const val safeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
+        const val spotless = "com.diffplug.spotless:spotless-plugin-gradle:${Versions.spotless}"
     }
 
     object Libs {

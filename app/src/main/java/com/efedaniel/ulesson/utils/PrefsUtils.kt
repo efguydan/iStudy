@@ -33,8 +33,8 @@ class PrefsUtils @Inject constructor(private val sharedPref: SharedPreferences, 
 
     fun putFloat(key: String, value: Float) {
         sharedPref.edit()
-                .putFloat(key, value)
-                .apply()
+            .putFloat(key, value)
+            .apply()
     }
 
     fun putStringSet(key: String, values: Set<String>) {

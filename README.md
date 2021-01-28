@@ -22,13 +22,17 @@ iStudy is an offline first Android application to watch videos about different e
 - [Timber](https://github.com/JakeWharton/timber) - logging
 
 ## System Architecture
+
 The Architecture used in the project is MVVM. Some reasons it was used include:
 
 - MVVM is structured to separate program logic and the user interface. The View contains the User interface, the Model contains the data while the Viewmodel connects them together, providing transformational logic where necessary.
 - The ViewModel survives configuration changes and provides a safe space to save data used by the fragment or activity. This was particularly used in the lesson fragment where the exoplayer instance is hosted in the viewmodel in order to survive configuration changes and keeps a smooth streaming experience.
 - The ViewModel, out of the box supports Reactive Programming. The ViewModel doesn't have to be aware of the View. It only exposes observables which the view can subscribe to and transform into UI for the user. This leads to lesser coupling of components.
 
+## Code Formatting
+Code Formatting is done with the gradle spotless plugin, using [ktlint](https://github.com/pinterest/ktlint) as the linter. Other settings for the plugin can be configured in [spotless.gradle](spotless.gradle). To format code, run
 
-The
-
+```gradle
+./gradlew spotlessApply
+```
 

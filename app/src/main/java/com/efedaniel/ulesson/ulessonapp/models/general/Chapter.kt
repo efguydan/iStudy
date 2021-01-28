@@ -8,4 +8,4 @@ data class Chapter(
     val id: Int,
     val name: String,
     val lessons: List<Lesson>
-): Parcelable
+) : Parcelable

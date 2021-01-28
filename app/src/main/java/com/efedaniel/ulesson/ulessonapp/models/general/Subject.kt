@@ -8,4 +8,4 @@ data class Subject(
     val id: Int,
     val name: String,
     val icon: String
-): Parcelable
+) : Parcelable

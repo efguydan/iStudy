@@ -12,9 +12,9 @@ import com.efedaniel.ulesson.ulessonapp.models.general.Subject
 
 class SubjectListAdapter(
     private val listener: SubjectListListener
-): ListAdapter<Subject, SubjectListAdapter.SubjectViewHolder>(DiffCallback) {
+) : ListAdapter<Subject, SubjectListAdapter.SubjectViewHolder>(DiffCallback) {
 
-    companion object DiffCallback: DiffUtil.ItemCallback<Subject>() {
+    companion object DiffCallback : DiffUtil.ItemCallback<Subject>() {
         override fun areItemsTheSame(oldItem: Subject, newItem: Subject): Boolean {
             return oldItem.id == newItem.id
         }
@@ -22,7 +22,6 @@ class SubjectListAdapter(
         override fun areContentsTheSame(oldItem: Subject, newItem: Subject): Boolean {
             return oldItem == newItem
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubjectViewHolder {
@@ -35,16 +34,14 @@ class SubjectListAdapter(
 
     inner class SubjectViewHolder(
         private val binding: ItemSubjectBinding
-    ): RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(subject: Subject) = binding.run {
             this.subject = subject
             executePendingBindings()
             rootCardView.setOnClickListener { listener.onSubjectClicked(subject) }
         }
-
     }
-
 }
 
 interface SubjectListListener {

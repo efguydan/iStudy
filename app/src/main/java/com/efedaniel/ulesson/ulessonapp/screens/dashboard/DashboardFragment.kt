@@ -1,7 +1,6 @@
 package com.efedaniel.ulesson.ulessonapp.screens.dashboard
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +18,6 @@ import com.efedaniel.ulesson.ulessonapp.models.general.RecentlyWatched
 import com.efedaniel.ulesson.ulessonapp.models.general.Subject
 import com.efedaniel.ulesson.ulessonapp.models.general.toLesson
 import com.efedaniel.ulesson.ulessonapp.models.general.toLocalRecentlyWatched
-import timber.log.Timber
 import javax.inject.Inject
 
 class DashboardFragment : BaseFragment(), SubjectListListener, RecentlyWatchedListListener {
@@ -30,8 +28,11 @@ class DashboardFragment : BaseFragment(), SubjectListListener, RecentlyWatchedLi
     private lateinit var viewModel: DashboardViewModel
     private lateinit var binding: FragmentDashboardBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = FragmentDashboardBinding.inflate(layoutInflater)
         binding.lifecycleOwner = this
         return binding.root
@@ -64,24 +65,26 @@ class DashboardFragment : BaseFragment(), SubjectListListener, RecentlyWatchedLi
     }
 
     private fun observeLiveData() {
-        viewModel.loadingStatus.observeNonNull(this, {
-            when(it) {
-                is LoadingStatus.Loading -> {
-                    binding.loadingFrameLayout.show()
-                    binding.progressBar.show()
-                    binding.retryButton.hide()
-                }
-                is LoadingStatus.Success -> binding.loadingFrameLayout.hide()
-                is LoadingStatus.Error -> {
-                    binding.loadingFrameLayout.show()
-                    binding.retryButton.show()
-                    binding.progressBar.hide()
+        viewModel.loadingStatus.observeNonNull(
+            this,
+            {
+                when (it) {
+                    is LoadingStatus.Loading -> {
+                        binding.loadingFrameLayout.show()
+                        binding.progressBar.show()
+                        binding.retryButton.hide()
+                    }
+                    is LoadingStatus.Success -> binding.loadingFrameLayout.hide()
+                    is LoadingStatus.Error -> {
+                        binding.loadingFrameLayout.show()
+                        binding.retryButton.show()
+                        binding.progressBar.hide()
+                    }
                 }
             }
-        })
+        )
         viewModel.itemCount.observeNonNull(this) {
             binding.viewAllButton.text = if (it == 2) getString(R.string.view_all) else getString(R.string.see_less)
         }
     }
-
 }

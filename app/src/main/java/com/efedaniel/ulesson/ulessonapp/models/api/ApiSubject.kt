@@ -1,9 +1,7 @@
 package com.efedaniel.ulesson.ulessonapp.models.api
 
-import android.os.Parcelable
 import com.efedaniel.ulesson.ulessonapp.models.local.LocalSubject
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
 
 data class ApiSubject(
     @SerializedName("id")

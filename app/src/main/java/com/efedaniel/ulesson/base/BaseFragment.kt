@@ -5,7 +5,7 @@ import com.efedaniel.ulesson.App
 import com.efedaniel.ulesson.MainActivity
 import com.efedaniel.ulesson.di.AppComponent
 
-abstract class BaseFragment: Fragment() {
+abstract class BaseFragment : Fragment() {
 
     protected val mainActivity: MainActivity
         get() {
@@ -14,5 +14,4 @@ abstract class BaseFragment: Fragment() {
 
     protected val daggerAppComponent: AppComponent
         get() = (mainActivity.applicationContext as App).component
-
 }

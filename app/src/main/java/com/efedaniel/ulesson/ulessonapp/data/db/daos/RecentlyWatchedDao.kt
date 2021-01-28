@@ -19,5 +19,4 @@ interface RecentlyWatchedDao {
 
     @Query("SELECT * FROM $RECENTLY_WATCHED_TABLE_NAME ORDER BY created_at DESC LIMIT :limit")
     fun getAllRecentlyWatchedLive(limit: Int): LiveData<List<LocalRecentlyWatched>>
-
 }

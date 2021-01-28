@@ -10,7 +10,7 @@ data class Lesson(
     val name: String,
     val icon: String,
     val videoLink: String
-): Parcelable
+) : Parcelable
 
 fun Lesson.toLocalRecentlyWatched(subjectName: String) = LocalRecentlyWatched(
     id = id,

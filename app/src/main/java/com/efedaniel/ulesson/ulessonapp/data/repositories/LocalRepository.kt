@@ -10,9 +10,11 @@ import com.efedaniel.ulesson.ulessonapp.models.api.toLocalChapter
 import com.efedaniel.ulesson.ulessonapp.models.api.toLocalLesson
 import com.efedaniel.ulesson.ulessonapp.models.api.toLocalSubject
 import com.efedaniel.ulesson.ulessonapp.models.general.Chapter
-import com.efedaniel.ulesson.ulessonapp.models.general.Lesson
-import com.efedaniel.ulesson.ulessonapp.models.general.RecentlyWatched
-import com.efedaniel.ulesson.ulessonapp.models.local.*
+import com.efedaniel.ulesson.ulessonapp.models.local.LocalLesson
+import com.efedaniel.ulesson.ulessonapp.models.local.LocalRecentlyWatched
+import com.efedaniel.ulesson.ulessonapp.models.local.LocalSubject
+import com.efedaniel.ulesson.ulessonapp.models.local.toChapter
+import com.efedaniel.ulesson.ulessonapp.models.local.toLesson
 import javax.inject.Inject
 
 class LocalRepository @Inject constructor(
@@ -77,5 +79,4 @@ class LocalRepository @Inject constructor(
         recentlyWatchedDao.insert(lesson)
         recentlyWatchedDao.keepItemsToFive()
     }
-
 }

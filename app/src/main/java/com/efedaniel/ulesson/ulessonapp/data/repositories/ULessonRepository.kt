@@ -5,7 +5,6 @@ import com.efedaniel.ulesson.networkutils.GENERIC_ERROR_MESSAGE
 import com.efedaniel.ulesson.networkutils.Result
 import com.efedaniel.ulesson.networkutils.getAPIResult
 import com.efedaniel.ulesson.ulessonapp.data.apis.ULessonService
-import com.efedaniel.ulesson.ulessonapp.models.api.ApiSubject
 import javax.inject.Inject
 
 class ULessonRepository @Inject constructor(
@@ -15,7 +14,7 @@ class ULessonRepository @Inject constructor(
 
     suspend fun getSubjects(): Result<Boolean> {
         return try {
-            when(val result = getAPIResult(uLessonService.getSubjects())) {
+            when (val result = getAPIResult(uLessonService.getSubjects())) {
                 is Result.Success -> {
                     localRepository.insertSubjects(result.data.subjects)
                     Result.Success(true)
@@ -27,5 +26,4 @@ class ULessonRepository @Inject constructor(
             Result.Error(GENERIC_ERROR_CODE, GENERIC_ERROR_MESSAGE)
         }
     }
-
 }

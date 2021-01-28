@@ -6,7 +6,7 @@ import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
 
 class VideoPlayer(
-        private val listener: VideoPlayerListener
+    private val listener: VideoPlayerListener
 ) {
 
     private var exoPlayer: SimpleExoPlayer? = null
@@ -19,8 +19,8 @@ class VideoPlayer(
         val trackSelector = DefaultTrackSelector(context)
         trackSelector.setParameters(trackSelector.buildUponParameters().setMaxVideoSizeSd())
         exoPlayer = SimpleExoPlayer.Builder(context)
-                .setTrackSelector(trackSelector)
-                .build()
+            .setTrackSelector(trackSelector)
+            .build()
         exoPlayer?.run {
             listener.onNewExoPlayer(this)
             playWhenReady = this@VideoPlayer.playWhenReady
@@ -38,7 +38,6 @@ class VideoPlayer(
         }
         exoPlayer = null
     }
-
 }
 
 interface VideoPlayerListener {

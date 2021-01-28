@@ -12,9 +12,9 @@ import com.efedaniel.ulesson.ulessonapp.models.general.Lesson
 
 class LessonListAdapter(
     private val listener: LessonListListener
-): ListAdapter<Lesson, LessonListAdapter.LessonViewHolder>(DiffCallback) {
+) : ListAdapter<Lesson, LessonListAdapter.LessonViewHolder>(DiffCallback) {
 
-    companion object DiffCallback: DiffUtil.ItemCallback<Lesson>() {
+    companion object DiffCallback : DiffUtil.ItemCallback<Lesson>() {
 
         override fun areItemsTheSame(oldItem: Lesson, newItem: Lesson): Boolean {
             return oldItem.id == newItem.id
@@ -35,19 +35,17 @@ class LessonListAdapter(
 
     inner class LessonViewHolder(
         private val binding: ItemLessonBinding
-    ): RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(lesson: Lesson) = binding.run {
             this.lesson = lesson
             executePendingBindings()
             rootCardView.setOnClickListener { listener.onLessonClicked(lesson) }
         }
-
     }
-
 }
 
-interface LessonListListener: ChapterListListener {
+interface LessonListListener : ChapterListListener {
     fun onLessonClicked(lesson: Lesson)
 }
 

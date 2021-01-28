@@ -4,30 +4,25 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.viewModelScope
-import com.efedaniel.ulesson.R
 import com.efedaniel.ulesson.base.BaseViewModel
 import com.efedaniel.ulesson.networkutils.LoadingStatus
 import com.efedaniel.ulesson.networkutils.Result
 import com.efedaniel.ulesson.networkutils.toLoadingStatus
 import com.efedaniel.ulesson.ulessonapp.data.repositories.LocalRepository
 import com.efedaniel.ulesson.ulessonapp.data.repositories.ULessonRepository
-import com.efedaniel.ulesson.ulessonapp.models.general.Lesson
 import com.efedaniel.ulesson.ulessonapp.models.general.RecentlyWatched
 import com.efedaniel.ulesson.ulessonapp.models.general.Subject
-import com.efedaniel.ulesson.ulessonapp.models.general.toLocalRecentlyWatched
 import com.efedaniel.ulesson.ulessonapp.models.local.LocalRecentlyWatched
 import com.efedaniel.ulesson.ulessonapp.models.local.LocalSubject
 import com.efedaniel.ulesson.ulessonapp.models.local.toRecentlyWatched
 import com.efedaniel.ulesson.ulessonapp.models.local.toSubject
-import com.efedaniel.ulesson.utils.ResourceProvider
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 class DashboardViewModel @Inject constructor(
     private val uLessonRepository: ULessonRepository,
     private val localRepository: LocalRepository
-): BaseViewModel() {
+) : BaseViewModel() {
 
     private val localSubjectList: LiveData<List<LocalSubject>> = localRepository.getAllSubjectsLive()
     val subjectList: LiveData<List<Subject>> = Transformations.map(localSubjectList) { list ->
@@ -72,5 +67,4 @@ class DashboardViewModel @Inject constructor(
             localRepository.insertRecentlyWatched(recentlyWatched)
         }
     }
-
 }

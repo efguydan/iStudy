@@ -14,5 +14,4 @@ object Constants {
         const val LESSON_TABLE_NAME = "lesson"
         const val RECENTLY_WATCHED_TABLE_NAME = "recently_watched"
     }
-
 }

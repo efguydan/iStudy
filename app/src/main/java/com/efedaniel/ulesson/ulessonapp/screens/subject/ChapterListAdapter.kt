@@ -12,9 +12,9 @@ import com.efedaniel.ulesson.ulessonapp.models.general.Chapter
 
 class ChapterListAdapter(
     private val listener: LessonListListener
-): ListAdapter<Chapter, ChapterListAdapter.ChapterViewHolder>(DiffCallback) {
+) : ListAdapter<Chapter, ChapterListAdapter.ChapterViewHolder>(DiffCallback) {
 
-    companion object DiffCallback: DiffUtil.ItemCallback<Chapter>() {
+    companion object DiffCallback : DiffUtil.ItemCallback<Chapter>() {
 
         override fun areItemsTheSame(oldItem: Chapter, newItem: Chapter): Boolean {
             return oldItem.id == newItem.id
@@ -35,16 +35,14 @@ class ChapterListAdapter(
 
     inner class ChapterViewHolder(
         private val binding: ItemChapterBinding
-    ): RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(chapter: Chapter) = binding.run {
             this.chapter = chapter
             lessonRecycler.adapter = LessonListAdapter(listener)
             executePendingBindings()
         }
-
     }
-
 }
 
 interface ChapterListListener
