@@ -1,5 +1,6 @@
 # iStudy
 ![Android CI](https://github.com/efguydan/iStudy/workflows/Android%20CI/badge.svg)
+[![Download Sample](https://img.shields.io/badge/Download-v1.0.0-blue.svg)](https://github.com/efguydan/iStudy/raw/master/showcase/iStudy-1.0.0.apk)
 
 iStudy is an offline first Android application to watch videos about different educational topics.
 
