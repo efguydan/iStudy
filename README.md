@@ -31,7 +31,9 @@ The Architecture used in the project is MVVM. Some reasons it was used include:
 
 The application consists of a single activity housing multiple fragments with navigation component used to define destinations and actions. Navigation Component also provides safe args which eases passing data into fragments in a null-safe way. 
 
-Dagger was also used for providing dependencies for different components in the project. This helps greatly in managing 
+Dagger was also used for providing dependencies for different components in the project. This helps greatly in managing and scoping dependencies used by different components in the project.
+
+To provide offline first functionality in the project, Room Database was used. Every Viewmodel in the project gets its data from the app's database first, before proceeding to make an API call to update the data in that database. Room's ability to provide its data in LiveData format was utilized as changes in the db made by the results from the API call will automatically reflect in the the viewmodel.
 
 
 ## Code Formatting
