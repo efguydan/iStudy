@@ -41,10 +41,11 @@ class DashboardFragment : BaseFragment(), SubjectListListener, RecentlyWatchedLi
         super.onViewCreated(view, savedInstanceState)
         daggerAppComponent.inject(this)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(DashboardViewModel::class.java)
+        viewModel.getSubjects()
         binding.viewModel = viewModel
 
         binding.subjectsRecyclerView.adapter = SubjectListAdapter(this)
-        binding.retryButton.setOnClickListener { viewModel.getSubjects() }
+        binding.retryButton.setOnClickListener { viewModel.getSubjects(true) }
         binding.recentlyWatchedRecycler.adapter = RecentWatchedListAdapter(this)
         binding.viewAllButton.setOnClickListener {
             viewModel.toggleRecentlyWatchedLimit()

@@ -42,11 +42,8 @@ class DashboardViewModel @Inject constructor(
         list.map { it.toRecentlyWatched() }
     }
 
-    init {
-        getSubjects()
-    }
-
-    fun getSubjects() {
+    fun getSubjects(forceRefresh: Boolean = false) {
+        if (subjectList.value?.isNotEmpty() == true && !forceRefresh) return
         viewModelScope.launch {
             val cache = localRepository.getAllSubjects()
             if (cache.isEmpty()) {

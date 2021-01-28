@@ -41,6 +41,9 @@ object Config {
         const val coil = "1.1.1"
         const val exoPlayer = "2.12.0"
         const val room = "2.2.6"
+        const val mockito = "2.2.0"
+        const val mockitoInline = "2.13.0"
+        const val testingCore = "2.1.0"
     }
 
     object Plugins {
@@ -100,12 +103,14 @@ object Config {
 
         object Test {
             const val jUnit = "junit:junit:${Versions.jUnit}"
+            const val mockitoKt = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockito}"
+            const val mockitoInline = "org.mockito:mockito-inline:${Versions.mockitoInline}"
+            const val androidJUnit = "androidx.test.ext:junit:${Versions.androidJUnit}"
+            const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+            const val testingCore = "androidx.arch.core:core-testing:${Versions.testingCore}"
+            const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
         }
 
-        object AndroidTest {
-            const val jUnit = "androidx.test.ext:junit:${Versions.androidJUnit}"
-            const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
-        }
     }
 }
 

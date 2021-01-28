@@ -85,7 +85,11 @@ dependencies {
     implementation(Config.Libs.Misc.coil)
 
     testImplementation(Config.Libs.Test.jUnit)
+    testImplementation(Config.Libs.Test.mockitoKt)
+    testImplementation(Config.Libs.Test.testingCore)
+    testImplementation(Config.Libs.Test.mockitoInline)
+    testImplementation(Config.Libs.Test.coroutines)
 
-    androidTestImplementation(Config.Libs.AndroidTest.jUnit)
-    androidTestImplementation(Config.Libs.AndroidTest.espresso)
+    androidTestImplementation(Config.Libs.Test.androidJUnit)
+    androidTestImplementation(Config.Libs.Test.espresso)
 }
