@@ -20,6 +20,7 @@ iStudy is an offline first Android application to watch videos about different e
 - [OkHttp3](https://github.com/square/okhttp) - implementing interceptor and logging
 - [Coil](https://github.com/coil-kt/coil) - loading images
 - [Timber](https://github.com/JakeWharton/timber) - logging
+- [Mockito](https://github.com/mockito/mockito-kotlin) - For mocking dependencies behaviours during Unit Tests
 
 ## System Architecture
 
@@ -34,6 +35,8 @@ The application consists of a single activity housing multiple fragments with na
 Dagger was also used for providing dependencies for different components in the project. This helps greatly in managing and scoping dependencies used by different components in the project.
 
 To provide offline first functionality in the project, Room Database was used. Every Viewmodel in the project gets its data from the app's database first, before proceeding to make an API call to update the data in that database. Room's ability to provide its data in LiveData format was utilized as changes in the db made by the results from the API call will automatically reflect in the the viewmodel.
+
+View Binding and Data Binding were used in the project to provide null safe view referencing to the layout views. View Binding for that sole purpose, Data Binding to bind UI components in the layouts to data sources in the viewmodel. This removes some unnecessary concern from the fragment / activity and moves those over to the xml itself. The binding is in turn scoped to the lifecycle of the fragment / activity to prevent any leaks.
 
 
 ## Code Formatting
