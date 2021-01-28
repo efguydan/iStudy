@@ -34,6 +34,12 @@ android {
         isExperimental = true
     }
 
+    lintOptions {
+        isAbortOnError = false
+        isIgnoreWarnings = true
+        isQuiet = true
+    }
+
     buildFeatures {
         viewBinding = true
         dataBinding = true

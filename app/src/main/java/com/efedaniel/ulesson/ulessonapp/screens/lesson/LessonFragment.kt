@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.navArgs
+import com.efedaniel.ulesson.R
 import com.efedaniel.ulesson.base.BaseFragment
 import com.efedaniel.ulesson.databinding.FragmentLessonBinding
 import com.efedaniel.ulesson.extensions.isLandScape
@@ -58,7 +60,7 @@ class LessonFragment : BaseFragment() {
     }
 
     private fun setupScreen() {
-//        back_button.setOnClickListener { mainActivity.onBackPressed() }
+        view?.findViewById<ImageView>(R.id.back_button)?.setOnClickListener { mainActivity.onBackPressed() }
         viewModel.exoPlayer.observeNonNull(this, { binding.exoPlayerView.player = it })
         binding.lessonTitle?.text = args.lesson.name
     }
