@@ -6,9 +6,7 @@ import com.efedaniel.ulesson.base.BaseViewModel
 import com.google.android.exoplayer2.SimpleExoPlayer
 import javax.inject.Inject
 
-class LessonViewModel @Inject constructor(
-
-): BaseViewModel(), VideoPlayerListener {
+class LessonViewModel @Inject constructor(): BaseViewModel(), VideoPlayerListener {
 
     val videoPlayer = VideoPlayer(this)
 
