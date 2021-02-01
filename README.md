@@ -8,14 +8,14 @@ iStudy is an offline first Android application to watch videos about different e
 - Minimum SDK level 21
 - 100% [Kotlin](https://kotlinlang.org/) + [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) for asynchronous
 - JetPack
- - LiveData - notify domain layer data to views.
- - Lifecycle - dispose observing data when lifecycle state changes.
- - ViewModel - UI related data holder, lifecycle aware.
- - Room Persistence - construct database.
+  - LiveData - notify domain layer data to views.
+  - Lifecycle - dispose observing data when lifecycle state changes.
+  - ViewModel - UI related data holder, lifecycle aware.
+  - Room Persistence - construct database.
 - Architecture
- - MVVM Architecture (View - DataBinding - ViewModel - Model)
- - Repository pattern
- - Dagger 2 - Dependency Injection
+  - MVVM Architecture (View - DataBinding - ViewModel - Model)
+  - Repository pattern
+  - Dagger 2 - Dependency Injection
 - [ExoPlayer](https://github.com/google/ExoPlayer) - playing video
 - [Retrofit2 & Gson](https://github.com/square/retrofit) - constructing the REST API
 - [OkHttp3](https://github.com/square/okhttp) - implementing interceptor and logging
